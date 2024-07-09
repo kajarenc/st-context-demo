@@ -1,25 +1,18 @@
 import streamlit as st
 
-st.header("Headers")
+st.header("st.context demo app", divider="rainbow")
 
-headers = st.context.headers
-cookies = st.context.cookies
+with st.echo():
+    st.write(st.context)
+    "----------------------------"
+    st.write(st.context.cookies)
+    "----------------------------"
+    st.write(st.context.headers)
+    "----------------------------"
+    st.write(st.context.headers["User-Agent"])
+    "----------"
+    st.write(st.context.headers.get("User-Agent"))
+    "----------"
+    st.write(st.context.headers.get_all("User-Agent"))
 
-for key, value in headers.items():
-    st.write(key)
-    st.code(value)
-
-st.write("-------")
-st.header("Cookies")
-
-for cookie_key, cookie_value in cookies.items():
-    st.write(cookie_key)
-    st.code(cookie_value)
-
-st.write("------")
-
-st.write(st.context.headers["User-Agent"])
-st.write(st.context.headers.get("user-agent"))
-st.write(st.context.headers.get_all("USER-AGENT"))
-
-st.write(st.context.headers.get_all("MISSING-HEADER"))
+# st.context.headers["User-Agent"] = "blablbalbla"
