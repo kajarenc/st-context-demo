@@ -15,4 +15,4 @@ with st.echo():
     "----------"
     st.write(st.context.headers.get_all("User-Agent"))
 
-# st.context.headers["User-Agent"] = "blablbalbla"
+st.context.headers["User-Agent"] = "blablbalbla"
